@@ -16,6 +16,11 @@ func main() {
 	account := account.NewAccount("changhoi")
 	account.Deposit(5000)
 	fmt.Println(account.Balance())
-	account.Withdraw(4000)
+	err := account.Withdraw(6000)
+	if err != nil {
+		fmt.Println(err)
+	}
+
 	fmt.Println(account.Balance())
+	fmt.Println(account)
 }
