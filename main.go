@@ -7,18 +7,15 @@ import (
 )
 
 func main() {
+	dic := mydict.Dictionary{}
+	base := "hello"
+	dic.Add(base, "first")
+	dic.Update(base, "second")
+	word, _ := dic.Search(base)
+	fmt.Println(word)
 
-	dic := mydict.Dictionary{"first": "First word"}
-
-	err := dic.Add("hello", "Greeting")
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	def, err := dic.Search("hello")
-	fmt.Println(def)
-
-	err = dic.Add("hello", "greeting")
+	dic.Delete(base)
+	_, err := dic.Search(base)
 	if err != nil {
 		fmt.Println(err)
 	}
