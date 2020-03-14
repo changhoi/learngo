@@ -3,24 +3,23 @@ package main
 import (
 	"fmt"
 
-	"github.com/changhoi/learngo/account"
+	"github.com/changhoi/learngo/mydict"
 )
 
-type person struct {
-	name         string
-	age          int
-	favoriteFood []string
-}
-
 func main() {
-	account := account.NewAccount("changhoi")
-	account.Deposit(5000)
-	fmt.Println(account.Balance())
-	err := account.Withdraw(6000)
+
+	dic := mydict.Dictionary{"first": "First word"}
+
+	err := dic.Add("hello", "Greeting")
 	if err != nil {
 		fmt.Println(err)
 	}
 
-	fmt.Println(account.Balance())
-	fmt.Println(account)
+	def, err := dic.Search("hello")
+	fmt.Println(def)
+
+	err = dic.Add("hello", "greeting")
+	if err != nil {
+		fmt.Println(err)
+	}
 }
